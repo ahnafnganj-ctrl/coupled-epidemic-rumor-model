@@ -1,50 +1,102 @@
-# Dynamics of Epidemics and Rumors: MATLAB Simulation and Sensitivity Analysis Codes
+# Coupled Epidemic–Rumor Model: MATLAB Codes
 
-This repository contains MATLAB codes for numerical simulation, equilibrium analysis, threshold analysis, parameter sensitivity analysis, and visualization of a deterministic coupled epidemic–rumor model with imperfect vaccination and behavioral feedback.
+This repository contains MATLAB codes for numerical simulation, threshold analysis, case studies, heatmap visualization, and sensitivity analysis of a deterministic coupled epidemic–rumor model with imperfect vaccination and behavioral feedback.
 
-The model couples disease transmission dynamics with information/rumor propagation. The epidemic subsystem includes susceptible, infected, vaccinated, and recovered populations, while the rumor subsystem describes unaware, active rumor spreaders, and corrected individuals.
+## Repository Structure
 
-## Model Framework
+```
+Coupled-Epidemic-Rumor-Model/
+│
+├── README.md
+│
+├── baseline_trajectories.m
+├── Case_studies.m
+├── coupling_comparison.m
+├── Long_term_infection_rumor_transmission.m
+├── Heatmap_analysis.m
+├── PRCC_analysis.m
+│
+└── matlab_output/
+    └── data/
+        ├── trajectory_*.csv
+        ├── response_*.csv
+        └── map_*.csv
+```
 
-The coupled system considers:
+## MATLAB Files
 
-- Disease states:
-  - S: susceptible population
-  - I: infected population
-  - V: vaccinated population
-  - R: recovered population
+### `baseline_trajectories.m`
+Generates baseline epidemic and rumor trajectories, including extinction, persistence, and coexistence scenarios.
 
-- Rumor states:
-  - U: unaware population
-  - A: active rumor spreaders
-  - C: corrected/informed population
+### `Case_studies.m`
+Simulates different behavioral and epidemiological scenarios:
+- Baseline
+- Low rumor transmission
+- High rumor transmission
+- High vaccination uptake
+- High vaccine leakiness
 
-Key model features:
+### `coupling_comparison.m`
+Compares the effects of epidemic–rumor coupling mechanisms and evaluates their impact on infection dynamics.
 
-- Imperfect vaccination
-- Rumor-induced reduction of vaccination uptake
-- Infection-driven rumor activation
-- Bidirectional epidemic–information feedback
+### `Long_term_infection_rumor_transmission.m`
+Generates long-term parameter-response analyses and threshold-based transmission figures.
 
-All simulations use normalized model time and illustrative parameter values described in the associated manuscript.
+### `Heatmap_analysis.m`
+Produces two-parameter heatmaps showing the effects of parameter interactions on final infection, vaccination, and rumor levels.
 
----
+### `PRCC_analysis.m`
+Performs global sensitivity analysis using Latin Hypercube Sampling (LHS) and Partial Rank Correlation Coefficient (PRCC) for:
 
-# MATLAB Requirements
+- \(R_{0E}\): epidemic reproduction number
+- \(R_{0R}\): rumor reproduction number
+- \(R_{E|1}\): disease invasion number around the persistent-rumor equilibrium
 
-Recommended:
+## Requirements
 
 - MATLAB R2020a or later
-- Base MATLAB functions only
+- Standard MATLAB functions only
 
-Required functionality:
+## Running the Codes
 
-- ODE45 solver
-- Standard plotting functions
-- Linear algebra functions
+Run individual scripts directly in MATLAB:
 
-No additional MATLAB toolbox is required for the main simulations.
+```matlab
+baseline_trajectories
+```
 
----
+```matlab
+Case_studies
+```
 
-# Repository Structure
+```matlab
+coupling_comparison
+```
+
+```matlab
+Long_term_infection_rumor_transmission
+```
+
+```matlab
+Heatmap_analysis
+```
+
+```matlab
+results = PRCC_analysis;
+```
+
+## Data
+
+The visualization scripts require CSV files located in:
+
+```
+matlab_output/data/
+```
+
+including trajectory, response, and heatmap datasets.
+
+## Citation
+
+If you use these codes, please cite the associated manuscript:
+
+**"Dynamics of Epidemics and Rumors: A Coupled System with Imperfect Vaccination and Behavioral Feedback."**
