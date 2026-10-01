@@ -1,28 +1,50 @@
-# Coupled Epidemic–Rumor Model: MATLAB Codes
+# Dynamics of Epidemics and Rumors: MATLAB Simulation and Sensitivity Analysis Codes
 
-This repository contains the MATLAB scripts used to reproduce the numerical figures presented in the study of coupled epidemic, vaccination, and rumor dynamics.
+This repository contains MATLAB codes for numerical simulation, equilibrium analysis, threshold analysis, parameter sensitivity analysis, and visualization of a deterministic coupled epidemic–rumor model with imperfect vaccination and behavioral feedback.
 
-## Requirements
+The model couples disease transmission dynamics with information/rumor propagation. The epidemic subsystem includes susceptible, infected, vaccinated, and recovered populations, while the rumor subsystem describes unaware, active rumor spreaders, and corrected individuals.
 
-- MATLAB [R2020a]
+## Model Framework
 
-## Figure-to-code mapping
+The coupled system considers:
 
-| Figure | MATLAB file |
-| Figure 2(a) | baseline_trajectories.m |
-| Figure 2(b) | endemic_coexistence.m |
-| Figure 3 | scenario_plot_V_I_A.m |
-| Figures 4 and 5 | beta_lamda_trajectories.m |
-| Figure 6 | heatmap_I_equilibrium_parameter_pairs.m |
-| Figures 7 and 8 | heatmap_V_equilibrium_parameter_pairs.m |
-| Figure 9 | heatmap_coupling_three_panel_maps.m |
-| Figure 10 | heatmap_A_equilibrium_parameter_pairs.m |
-| Figure 11 | PRCC_R0E_R0R_analysis_v2.m |
+- Disease states:
+  - S: susceptible population
+  - I: infected population
+  - V: vaccinated population
+  - R: recovered population
 
-## Running the codes
-Download or clone the repository, open the required MATLAB file, and run it
-from the MATLAB Editor. Parameter values are defined within the corresponding
-scripts unless otherwise stated.
+- Rumor states:
+  - U: unaware population
+  - A: active rumor spreaders
+  - C: corrected/informed population
 
-## Citation
-If you use these codes, please cite the associated article and this repository.
+Key model features:
+
+- Imperfect vaccination
+- Rumor-induced reduction of vaccination uptake
+- Infection-driven rumor activation
+- Bidirectional epidemic–information feedback
+
+All simulations use normalized model time and illustrative parameter values described in the associated manuscript.
+
+---
+
+# MATLAB Requirements
+
+Recommended:
+
+- MATLAB R2020a or later
+- Base MATLAB functions only
+
+Required functionality:
+
+- ODE45 solver
+- Standard plotting functions
+- Linear algebra functions
+
+No additional MATLAB toolbox is required for the main simulations.
+
+---
+
+# Repository Structure
