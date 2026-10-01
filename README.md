@@ -90,7 +90,7 @@ results = PRCC_analysis;
 The visualization scripts require CSV files located in:
 
 ```
-matlab_output/data/
+data
 ```
 
 including trajectory, response, and heatmap datasets.
